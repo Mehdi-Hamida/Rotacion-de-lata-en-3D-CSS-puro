@@ -50,12 +50,12 @@ h1#name
     transform: translateX(-50%);
     background: 
         var(--url) var(--left) 0,
-        url(/images/mockup.png); /* Permet d'appeler l'url d'image correspondant à l'étiquette de chaque soda */
+        url(./images/mockup.png); /* Permet d'appeler l'url d'image correspondant à l'étiquette de chaque soda */
     background-size: auto 100%;
     width: 280px;
     aspect-ratio: 2 / 4;
     background-blend-mode: multiply; /* Superpose la canette et l'étiquette */
-    mask-image: url(/images/mockup.png); /* Découpe le tout avec la forme de la canette */
+    mask-image: url(./images/mockup.png); /* Découpe le tout avec la forme de la canette */
     mask-size: auto 100%;
     transition: 0.7s;
 }
