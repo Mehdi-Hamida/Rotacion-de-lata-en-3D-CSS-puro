@@ -1,0 +1,128 @@
+body
+{
+    margin: 0;
+    background-color: #0f0f0f;
+    background-image: linear-gradient(rgba(255, 255, 255, .05) 0.1em, transparent 0.1em), linear-gradient(90deg, rgba(255, 255, 255, .05) 0.1em, transparent 0.1em);
+    background-size: 200px 200px;
+}
+
+h1#name
+{
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 2vh; 
+    font-family: "Kalnia", sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+}
+
+.banner
+{
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .product
+{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: 0.7s;
+    --left: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.banner .product .soda
+{
+    position: absolute; /* Superpose les 2 sodas */
+    left: 50%;
+    transform: translateX(-50%);
+    background: 
+        var(--url) var(--left) 0,
+        url(/images/mockup.png); /* Permet d'appeler l'url d'image correspondant à l'étiquette de chaque soda */
+    background-size: auto 100%;
+    width: 280px;
+    aspect-ratio: 2 / 4;
+    background-blend-mode: multiply; /* Superpose la canette et l'étiquette */
+    mask-image: url(/images/mockup.png); /* Découpe le tout avec la forme de la canette */
+    mask-size: auto 100%;
+    transition: 0.7s;
+}
+
+.banner .product:hover
+{
+    --left: -1000px;
+    transform: translateX(-50%) translateY(-120px);
+}
+
+.banner .rock
+{
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.banner .rock img
+{
+    position: absolute;
+    transition: 0.7s;
+}
+
+.banner .rock img:nth-child(1)
+{
+    height: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    z-index: 1;
+}
+
+.banner:has(.product:hover) .rock img:nth-child(1)
+{
+    transform: translateX(-50%) translateY(50px);
+}
+
+.banner .rock img:nth-child(2)
+{
+    height: 50%;
+    left: 0;
+    bottom: 0;
+}
+
+.banner:has(.product:hover) .rock img:nth-child(2)
+{
+    transform: translateX(-100px) translateY(100px);
+}
+
+.banner .rock img:nth-child(3)
+{
+    height: 100%;
+    right: 0;
+    bottom: -100px;
+    rotate: -25deg;
+}
+
+.banner:has(.product:hover) .rock img:nth-child(3)
+{
+    transform: translateX(100px) translateY(100px);
+}
+
+.banner .product .soda:nth-child(2)
+{
+    opacity: 0; /* Cache la seconde étiquette (jaune) de base */
+}
+
+.banner .product:hover .soda:nth-child(2)
+{
+    opacity: 1; /* Cache la seconde étiquette (jaune) de base */
+}
